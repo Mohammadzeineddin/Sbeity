@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Berry Menu</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; background: #f4f4f4; }
+        .container { display: flex; flex-direction: column; height: 100vh; }
+        header { 
+            background: #e91e63; color: white; padding: 15px; text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10;
+        }
+        .mobile-notice { display: none; padding: 20px; text-align: center; }
+        .pdf-viewer { flex-grow: 1; border: none; width: 100%; height: 100%; }
+        .btn {
+            display: inline-block; padding: 12px 24px; background: #e91e63;
+            color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px;
+        }
+        /* Mobile Specific Styling */
+        @media screen and (max-width: 768px) {
+            .pdf-viewer { display: none; } /* Frames often break on mobile */
+            .mobile-notice { display: block; }
+            body { overflow: auto; }
+        }
+    </style>
 </head>
 <body>
-<iframe src="Menu for QR.pdf" width="100%" height="800px">
-</iframe>
+
+<div class="container">
+    <header>
+        <h1>CHERRY BERRY MENU</h1>
+        <p>Baqaata - Chouf | +961 81 661 433</p> [cite: 36, 37]
+    </header>
+
+    <div class="mobile-notice">
+        <h2>Welcome to Cherry Berry</h2>
+        <p>Tap the button below to view our full menu of Juices, Crepes, and Ice Cream.</p>
+        <a href="Menu for QR.pdf" class="btn">View Menu (PDF)</a>
+    </div>
+
+    <iframe class="pdf-viewer" src="Menu for QR.pdf#view=FitH"></iframe>
+</div>
 
 </body>
 </html>
