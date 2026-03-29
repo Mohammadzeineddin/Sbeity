@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cherry Berry Menu</title>
+    <title>CHERRY BERRY MENU</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; background: #f4f4f4; }
-        .container { display: flex; flex-direction: column; height: 100vh; }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+        .wrapper { display: flex; flex-direction: column; height: 100vh; }
         header { 
             background: #e91e63; color: white; padding: 15px; text-align: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); 
         }
-        .mobile-notice { display: none; padding: 20px; text-align: center; }
-        .pdf-viewer { flex-grow: 1; border: none; width: 100%; height: 100%; }
-        .btn {
-            display: inline-block; padding: 12px 24px; background: #e91e63;
-            color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin-top: 10px;
+        .menu-container { flex-grow: 1; position: relative; overflow: auto; -webkit-overflow-scrolling: touch; }
+        iframe { width: 100%; height: 100%; border: none; }
+        
+        /* High-visibility button for mobile if PDF fails to load */
+        .mobile-btn-container {
+            padding: 40px 20px; text-align: center; background: #f9f9f9;
         }
-        /* Mobile Specific Styling */
-        @media screen and (max-width: 768px) {
-            .pdf-viewer { display: none; } /* Frames often break on mobile */
-            .mobile-notice { display: block; }
-            body { overflow: auto; }
+        .view-btn {
+            background: #e91e63; color: white; padding: 20px 40px; 
+            text-decoration: none; border-radius: 50px; font-weight: bold;
+            font-size: 1.2rem; display: inline-block; box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+        }
+        
+        @media screen and (min-width: 769px) {
+            .mobile-btn-container { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <iframe class="pdf-viewer" src="Menu for QR.pdf#view=FitH"></iframe>
+<div class="wrapper">
+    <header>
+        <h1 style="margin:0; font-size: 1.5rem;">CHERRY BERRY</h1>
+        <p style="margin:5px 0 0; font-size: 0.9rem;">Baqaata - Chouf | +961 81 661 433</p>
+    </header>
+
+    <div class="mobile-btn-container">
+        <p>Your phone is protecting you from automatic PDF viewing.</p>
+        <a href="Menu for QR.pdf" target="_blank" class="view-btn">TAP TO OPEN MENU</a>
+    </div>
+
+    <div class="menu-container">
+        <object data="Menu for QR.pdf" type="application/pdf" width="100%" height="100%">
+            <iframe src="https://docs.google.com/viewer?url=https://mohammadzeineddin.github.io/Sbeity/Menu%20for%20QR.pdf&embedded=true"></iframe>
+        </object>
+    </div>
 </div>
 
 </body>
